@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: irobinso <irobinso@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/10/30 14:24:42 by irobinso          #+#    #+#             */
+/*   Updated: 2024/10/30 15:21:36 by irobinso         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "get_next_line.h"
 /* Combines buffer and buf into a new string,
 frees buffer, and returns the new string.*/
@@ -8,7 +20,6 @@ char	*ft_free_buffer(char *buffer, char *buf)
 
 	temp = ft_strjoin(buffer, buf);
 	free(buffer);
-	free(buf);
 	return (temp);
 }
 
@@ -71,18 +82,22 @@ char	*ft_line(char *buffer)
 	}
 	return (line);
 }
+
 /*
- * Reads data from the specified file descriptor (fd) into a temporary buffer.
+ * Reads data from the specified file descriptor (fd) into
+  a temporary buffer.
  * This data is appended to the result string (res) until:
  * - A newline character (\n) is encountered, or
  * - The end of the file (EOF) is reached.
  *
- * The function handles dynamic memory allocation for both the buffer and the result string.
- * If a newline is found, the function stops reading further and returns the updated result string.
- * If an error occurs during reading, the function returns NULL and frees allocated memory.
+ * The function handles dynamic memory allocation for both
+ *  the buffer and the result string.
+ * If a newline is found, the function stops reading further and
+ *  returns the updated result string.
+ * If an error occurs during reading, the function returns NULL
+ *  and frees allocated memory.
  ! in short, takes chunks by chunk and see if there is a newline.
  */
-
 char	*read_file(int fd, char *res)
 {
 	char	*buffer;
